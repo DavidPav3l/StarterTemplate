@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Muhammad Ahsan Ayaz<ahsan.ubitian@gmail.com>",
+  "author": "Muhammad Ahsan Ayaz modified by David.Pavel",
   "license": "MIT",
   "devDependencies": {
     "copy-webpack-plugin": "^10.1.0",
