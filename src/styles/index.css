@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: blueviolet;
+div {
+  h1 {
+    @apply text-cyan-300;
+  }
+  span {
+    @apply text-2xl text-blue-900;
+  }
 }

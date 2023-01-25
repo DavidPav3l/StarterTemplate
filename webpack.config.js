@@ -1,8 +1,7 @@
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
-
 module.exports = {
-  entry: "./src/index.ts",
+  entry: "./src/ts/index.ts",
   mode: "development",
   devServer: {
     watchFiles: ["src/**/*"],
@@ -26,7 +25,7 @@ module.exports = {
   },
   plugins: [
     new CopyPlugin({
-      patterns: [{ from: "src/index.html", to: "index.html" }],
+      patterns: [{ from: "src/html/index.html", to: "index.html" }],
     }),
   ],
   output: {
