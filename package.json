@@ -27,6 +27,7 @@
     "webpack-dev-server": "^4.6.0"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.13"
+    "autoprefixer": "^10.4.13",
+    "firebase": "^9.17.1"
   }
 }

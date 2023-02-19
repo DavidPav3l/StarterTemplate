@@ -1,2 +1,2 @@
 import "../styles/index.css";
-import "./TypeScript-caca.js";
+import "../js/TypeScript-caca.js";
