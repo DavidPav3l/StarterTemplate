@@ -1,2 +1,4 @@
 import "../styles/index.css";
-import "../js/TypeScript-caca.js";
+import url from "../assets/poza.jpg";
+const img = document.querySelector("img") as HTMLImageElement;
+img.src = url;

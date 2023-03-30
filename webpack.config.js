@@ -1,10 +1,11 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 module.exports = {
-  entry:{
-    index:"./src/ts/index.ts",
-    test:"./src/ts/test.ts"
+  entry: {
+    index: "./src/ts/index.ts",
   },
   mode: "development",
   devServer: {
@@ -13,7 +14,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(jpg|png|jpeg|svg|gif)$/,
+        test: /\.html$/i,
+        loader: "html-loader",
+      },
+      {
+        test: /\.(jpg|png|jpeg|svg|gif|pdf)$/,
         type: "asset/resource",
       },
       {
@@ -24,24 +29,24 @@ module.exports = {
       {
         test: /\.css$/i,
         include: path.resolve(__dirname, "src"),
-        use: ["style-loader", "css-loader", "postcss-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
       },
     ],
+  },
+  optimization: {
+    minimizer: [`...`, new CssMinimizerPlugin()],
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
   plugins: [
-    new HtmlWebpackPlugin({  // Also generate a test.html
-      filename: 'index.html',
-      template: 'src/html/index.html',
-      chunks: ['index']
+    new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({
+      // Also generate a test.html
+      filename: "index.html",
+      template: "src/html/index.html",
+      chunks: ["index"],
     }),
-    new HtmlWebpackPlugin({  // Also generate a test.html
-      filename: 'test.html',
-      template: 'src/html/test.html',
-      chunks: ['test']
-    })
   ],
   output: {
     filename: "[name].bundle.js",
