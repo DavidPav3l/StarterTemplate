@@ -11,5 +11,4 @@ const GetCash = async function () {
 const mama = async function () {
     await GetCash();
 };
-
 mama();
